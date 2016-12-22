@@ -196,8 +196,8 @@ Atomic64 Release_Load(volatile const Atomic64* ptr);
 
 // Apple.
 #elif defined(GOOGLE_PROTOBUF_OS_APPLE)
-#pragma message(_GNUC_VER)
-#if __has_feature(cxx_atomic) || _GNUC_VER >= 407
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_12
+// #if __has_feature(cxx_atomic) || _GNUC_VER >= 407
 #include <google/protobuf/stubs/atomicops_internals_generic_c11_atomic.h>
 #else  // __has_feature(cxx_atomic) || _GNUC_VER >= 407
 #include <google/protobuf/stubs/atomicops_internals_macosx.h>
