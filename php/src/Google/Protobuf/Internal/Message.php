@@ -395,6 +395,11 @@ class Message
             $number = GPBWire::getTagFieldNumber($tag);
             $field = $this->desc->getFieldByNumber($number);
 
+            // Check whether we retrieved a known field
+            if ($field == null) {
+                continue;
+            }
+
             if (!$this->parseFieldFromStream($tag, $input, $field)) {
                 return false;
             }
