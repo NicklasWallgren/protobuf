@@ -155,7 +155,7 @@ class Descriptor
 
     public function getFieldByNumber($number)
     {
-        return $this->field[$number];
+        return @$this->field[$number];
     }
 
     public function setClass($klass)
